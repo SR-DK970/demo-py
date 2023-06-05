@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image CI CD
 
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: Remove existing Container and Image and run latest image from docker hub
         uses: actions/checkout@v3  
-      - run : docker stop pythonapp
-      - run : docker rm pythonapp
+      - run : docker stop newpythonapp
+      - run : docker rm newpythonapp
       - run : docker rmi sravankolla/my-sravan-test-demo-app
-      - run : docker run -itd --name pythonapp -p 5050:5000 --restart unless-stopped  sravankolla/my-sravan-test-demo-app
+      - run : docker run -itd --name newpythonapp -p 5050:5000 --restart unless-stopped  sravankolla/my-sravan-test-demo-app
