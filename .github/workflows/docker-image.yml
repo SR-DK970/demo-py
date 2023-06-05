@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: Remove existing Container and Image and run latest image from docker hub
         uses: actions/checkout@v3  
-      - run : docker stop newpythonapp
-      - run : docker rm newpythonapp
-      - run : docker rmi sravankolla/my-sravan-test-demo-app
+      - run : docker stop newpythonapp 2> log.txt
+      - run : docker rm newpythonapp 2> log.txt
+      - run : docker rmi sravankolla/my-sravan-test-demo-app 2> log.txt
       - run : docker run -itd --name newpythonapp -p 5050:5000 --restart unless-stopped  sravankolla/my-sravan-test-demo-app
