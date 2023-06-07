@@ -25,7 +25,7 @@ jobs:
       with:
           context: .
           push: true
-          tags: sravankolla/my-sravan-test-demo-app:latest
+          tags: sravankolla/my-demo-actions-app:latest
           
   deploy:
     needs: build
@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: Remove existing Container and Image and run latest image from docker hub
         uses: actions/checkout@v3  
-      - run : docker stop newpythonapp 2> /dev/null || true 
-      - run : docker rm newpythonapp 2> /dev/null || true 
-      - run : docker rmi sravankolla/my-sravan-test-demo-app 2> /dev/null || true
-      - run : docker run -itd --name newpythonapp -p 5050:5000 --restart unless-stopped  sravankolla/my-sravan-test-demo-app
+      - run : docker stop demopythonapp 2> /dev/null || true 
+      - run : docker rm demopythonapp 2> /dev/null || true 
+      - run : docker rmi sravankolla/my-demo-actions-app 2> /dev/null || true
+      - run : docker run -itd --name demopythonapp -p 5050:5000 --restart unless-stopped  sravankolla/my-demo-actions-app
